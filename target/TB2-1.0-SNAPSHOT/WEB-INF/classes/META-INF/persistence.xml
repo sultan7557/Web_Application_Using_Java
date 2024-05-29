@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+    <!-- Define Persistence Unit -->
+    <persistence-unit name="my_persistence_unit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.mycompany.tb2.Person</class>
+        <class>com.mycompany.tb2.Project</class>
+        <class>com.mycompany.tb2.Employee</class> <!-- Add the mapping for the Employee entity -->
+
+        <!-- Specify Hibernate properties -->
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sultan"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.id.new_generator_mappings" value="false"/>
+            <!-- Add other Hibernate properties as needed -->
+            
+            <!-- Auto-update the database schema -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
